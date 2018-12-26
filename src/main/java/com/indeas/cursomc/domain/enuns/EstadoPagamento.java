@@ -21,13 +21,13 @@ public enum EstadoPagamento {
 		return descricao;
 	}
 	
-	public static TipoCliente toEnum(Integer cod) {
-		if(cod == null) {
+	public static EstadoPagamento toEnum(Integer cod) {
+		if (cod == null) {
 			return null;
 		}
 		
-		for(TipoCliente x: TipoCliente.values()) {
-			if(cod.equals(x.getCod())) {
+		for (EstadoPagamento x : EstadoPagamento.values()) {
+			if (cod.equals(x.getCod())) {
 				return x;
 			}
 		}
