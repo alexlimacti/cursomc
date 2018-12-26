@@ -17,11 +17,6 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public String listar() {
-		return "REST está funcionando!";
-	}
-	
 	@RequestMapping(value="{id}", method=RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
