@@ -15,6 +15,8 @@ import com.indeas.cursomc.repositories.PagamentoRepository;
 import com.indeas.cursomc.repositories.PedidoRepository;
 import com.indeas.cursomc.services.exceptions.ObjectNotFoundException;
 
+
+
 @Service
 public class PedidoService {
 
@@ -35,6 +37,9 @@ public class PedidoService {
 	
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
@@ -61,7 +66,7 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
 		return obj;
 	}
 }

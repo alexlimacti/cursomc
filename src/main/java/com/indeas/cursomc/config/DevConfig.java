@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.indeas.cursomc.services.DBService;
+import com.indeas.cursomc.services.EmailService;
+import com.indeas.cursomc.services.MockEmailService;
 
 @Configuration
 @Profile("dev")
